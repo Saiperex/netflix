@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!--ICONS-->
+  <script src="https://kit.fontawesome.com/c8bf7962f3.js" crossorigin="anonymous"></script>
+  <!--FONTS-->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400&display=swap" rel="stylesheet">
+  <!--CSS-->
+  <link rel="stylesheet" href="css/init.css">
+  <link rel="stylesheet" href="css/estilos.css">
+  <style>
+    .contador
+    {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #countdown 
+    {
+        font-size: 3em;
+        color: #fff;
+        font-family: 'Orbitron', sans-serif;
+        text-align: center;
+        text-shadow:
+        0 0 15px #8220DB,
+        0 0 30px #8220DB,
+        0 0 45px #8220DB,
+        0 0 60px #8220DB;
+        font-weight: 600;
+    }
+  </style>
+  <!--ICON-->
+  <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
+  <!--META-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARKADYS TECH</title>
+  <meta name="description"
+    content="Arkadys Tech te desafía a alcanzar tus metas más ambiciosas con tecnología innovadora y un enfoque personalizado.">
+  <meta name="keywords"
+    content="tecnología, innovación, Arkadys Tech, software, inteligencia artificial, soluciones tecnológicas">
+</head>
+
+<body>
+  <div class="fondo">
+    <div id="particles-js"></div>
+  </div>
+  <main class="principal" style="padding-top: 0;">
+    <section class="contador">
+        <div class="inicio_centrar">
+            <div class="inicio_sec">
+                <picture class="logo">
+                  <img src="assets/img/logo.png" alt="img">
+                  <div class="fuego"></div>
+                  <div class="distorsion" style="height: 130%;"></div>
+                  <canvas id="fireCanvas"></canvas>
+                </picture>
+                <div id="countdown"></div>
+
+    <script>
+        // Fecha objetivo
+        const targetDate = new Date('2024-06-08T00:00:00').getTime();
+
+        // Actualizar el contador cada segundo
+        const countdown = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            // Calcular días, horas, minutos y segundos
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Mostrar el resultado en el elemento con id "countdown"
+            document.getElementById('countdown').innerHTML =
+                days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's ';
+
+            // Si el contador llega a 0, mostrar un mensaje
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById('countdown').innerHTML = '¡Llegamos a la fecha objetivo!';
+            }
+        }, 1000);
+    </script>
+              </div>
+        </div>
+    </section>
+  </main>
+  <footer class="pie">
+
+  </footer>
+</body>
+<script src="js/flame.js"></script>
+<script src="js/particles.min.js"></script>
+<script src="js/config_particles.js"></script>
+
+</html>
